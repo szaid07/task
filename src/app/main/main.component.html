@@ -1,0 +1,50 @@
+<div class="main-container">
+  <div class="search-container">
+    <div class="header-title">Gif Search</div>
+    <div class="search-group">
+      <input
+        type="text"
+        (keyup.enter)="searchGifs()"
+        [(ngModel)]="searchingQuery"
+        class="search-input"
+        placeholder="What are you looking for?"
+        name="search"
+        id="search"
+      />
+      <button class="search-btn" (click)="searchGifs()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    <div class="subheaeder">
+      <h3>You can search any gif with our search</h3>
+      <h4>
+        Everything you need for your creative projects. websites, banners,
+        presentations, magazines and advertising.
+      </h4>
+    </div>
+  </div>
+  <div class="result-container">
+    <div class="gif-holder-card">
+      <div *ngFor="let gif of gifs; index as i">
+        <a href="gif.url" target="_blank">
+          <img src="{{ gif.images.preview_webp.url }}" alt="" width="100%" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-container">
+    <div class="signup-container">
+      <h3>Sign up and get free content every week</h3>
+      <input class="email-input" type="email" placeholder="Share your email" />
+      <button class="signUp-btn">Sign Up</button>
+    </div>
+    <div class="category-container">
+      <h2>Browse by categories</h2>
+      <div class="footer-links">
+        <a href="#" *ngFor="let footer of footerLinks">
+          {{ footer }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
